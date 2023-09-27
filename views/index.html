@@ -1,0 +1,318 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="src/css/style.css" rel="stylesheet">
+        <link href="dist/output.css" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" /> -->
+        
+    </head>
+    
+    <body >
+        <style>
+            .landing_main {
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: contain;
+                background-image: url(images/background.png);
+                background-position-x: 1000px;
+                background-position-y: -30px;
+            }
+            .bg-secondary-600{
+                background-color: #008C77;
+            }
+            .bg-secondary-600:hover{
+                background-color: #B0E0D9;
+            }
+
+            .job{
+                border: 1px solid #008C77;
+                color: #008C77;
+                background-color: #E6F5F3;
+            }
+
+            .text-skill{
+                color: #008C77;
+            }
+
+            .modal{
+                display: none;
+            }
+
+        </style>
+        <!-- header -->
+        <div class="landing_main">
+            <nav class="bg-white shadow">
+                <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+                    <div class="flex h-16 justify-between">
+                        <div class="flex px-2 lg:px-0">
+                            <div class="flex flex-shrink-0 items-center">
+                                <img class="h-8 w-auto" src="images/klapil.png" alt="Klapil">
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="hidden lg:ml-4 lg:flex lg:items-center">
+                            <button type="button" class="relative flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                <span class="absolute -inset-1.5"></span>
+                                <span class="sr-only">View notifications</span>
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                                </svg>
+                            </button>
+                        
+                            <!-- Profile dropdown -->
+                            <div class="relative ml-4 flex-shrink-0">
+                                <div>
+                                    <button type="button" class="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                        <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                        <span class=" font-medium text-base ml-3 mt-1 " >
+                                            Tom Cook
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Mobile menu, show/hide based on menu state. -->
+                <div class="lg:hidden" id="mobile-menu">
+                    
+                    <div class="border-t border-gray-200 pb-3 pt-4">
+                        <div class="flex items-center px-4">
+                            <div class="flex-shrink-0">
+                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                
+                            </div>
+                            <div class="ml-3">
+                                <div class="text-base font-medium text-gray-800">Tom Cook</div>
+                            </div>
+                            <button type="button" class="relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                <span class="absolute -inset-1.5"></span>
+                                <span class="sr-only">View notifications</span>
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                                </svg>
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </nav>
+        <!-- content boody -->
+        
+            <form method="post" action="http://localhost:8080/user">
+                
+                <div class="space-y-10 m-20">
+                    <!-- About profile -->
+                    <div class=" -mt-10 -mb-5">
+                        <h2 class="text-base font-bold leading-7 text-grey-900">A propos de vous <span class="text-red-500">*</span> </h2>
+                    </div>
+                    <div class="grid grid-cols-3 " >
+                        <div class="col-1 sm:col-12 mr-6 ">
+                            <div class="rounded-md px-3 pb-1 pt-1 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 ">
+                                <label for="name" class="block text-xs font-regular text-gray-900">Prénom</label>
+                                <input type="text" name="prenom" id="name" class="block w-full text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Prénom">
+                            </div>
+                        </div>
+                        <div class="col-1 sm:col-12 mr-6">
+                            <div class="rounded-md px-3 pb-1 pt-1 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 ">
+                                <label for="name" class="block text-xs font-regular text-gray-900">Nom</label>
+                                <input type="text" name="nom" id="name" class="block w-full text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Nom" required>
+                            </div>
+                        </div>   
+                    </div>
+
+                    <!-- About contact -->
+                    <div class="grid grid-cols-3   " >
+                        <div class="col-1 mr-6 -mt-5  ">
+                            <div class="border-b border-gray-900/10 pb-1  ">
+                                <h2 class="text-base font-bold leading-7  text-grey-900">Numéro de téléphone <span class="text-red-500">*</span> </h2>
+                            </div>
+                            <div class="rounded-md px-3 pb-1 pt-1 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 ">
+                                <label for="name" class="block text-xs font-regular text-gray-900">Numéro de téléphone</label>
+                                <input type="text" name="phone" id="name" class="block w-full text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="06 98 36 44 32">
+                            </div>
+                        </div>
+                        <div class="col-2 mr-6 -mt-5  ">
+                            <div class="border-b border-gray-900/10 pb-1">
+                                <h2 class="text-base font-bold leading-7 text-grey-900">Adresse email <span class="text-red-500"></span> </h2>
+                            </div>
+                            <div class="rounded-md px-3 pb-1 pt-1 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 ">
+                                <label for="name" class="block text-xs font-regular text-gray-900">Adresse email</label>
+                                <input type="email" name="email" id="name" class="block w-full text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="testklapil@klapil.fr" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- About type of Job -->
+                    <div class=" pb-1  " >
+                        <h2 class="text-base font-bold leading-7 text-gray-900 pb-5 -mt-5">Types de Job <span class="text-red-500">*</span> </h2>
+                        <button type="button" class="mr-8 mt-2 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                            Entreprise de rénovation
+                        </button>
+
+                        <button type="button" class="mr-8 mt-2 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                            Artison
+                        </button>
+
+                        <button type="button" class="mr-8 mt-2 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                            Ingénieur / bureau d'étude
+                        </button>
+                    </div>
+
+                    <!-- About Job -->
+                    <div class=" pb-1">
+                        <h2 class="text-base font-bold mb-3 -mt-5  text-grey-900">Métiers <span class="text-red-500">*</span> </h2>
+                        <p>
+                            <span class="inline-flex items-center gap-x-0.5 rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                                Architecte
+                                <button type="button" class="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-green-600/20">
+                                <span class="sr-only">Remove</span>
+                                <svg viewBox="0 0 14 14" class="h-3.5 w-3.5 stroke-green-700/50 group-hover:stroke-green-700/75">
+                                    <path d="M4 4l6 6m0-6l-6 6" />
+                                </svg>
+                                <span class="absolute -inset-1"></span>
+                                </button>
+                            </span>
+                        </p>
+                        <!-- Modal toggle -->
+                        <button data-modal-target="staticModal" data-modal-toggle="staticModal" type="button" class="inline-flex rounded-full bg-secondary-600 text-white mt-2 px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 ">
+                            <svg class="h-7 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                            </svg> <span class="mt-1">Ajouter un métier</span>
+                        </button>
+                    </div>
+                    
+                    <!-- About Skills -->
+                    <div class="pb-1">
+                        <h2 class="text-base font-bold mb-3 -mt-5 leading-7 text-grey-900">Compétences:   </h2>
+                        <p >
+                            <span class="inline-flex items-center gap-x-0.5 rounded-full bg-secondary-600  mr-6 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-green-600/20">
+                                Architecte
+                                <button type="button" class="group relative bg-white -mr-1 h-3.5 w-3.5 text-skill rounded-full hover:bg-white-600/20">
+                                <span class="sr-only">Remove</span>
+                                <svg viewBox="0 0 14 14" class="h-3.5 w-3.5 stroke-green-700/50 group-hover:stroke-green-700/75">
+                                    <path d="M4 4l6 6m0-6l-6 6" />
+                                </svg>
+                                <span class="absolute -inset-1"></span>
+                                </button>
+                            </span>
+
+                            <span class="inline-flex items-center gap-x-0.5 rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                                Conception 2D 3D
+                                <button type="button" class="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-green-600/20">
+                                <span class="sr-only">Remove</span>
+                                <svg viewBox="0 0 14 14" class="h-3.5 w-3.5 stroke-green-700/50 group-hover:stroke-green-700/75">
+                                    <path d="M4 4l6 6m0-6l-6 6" />
+                                </svg>
+                                <span class="absolute -inset-1"></span>
+                                </button>
+                            </span>
+                        </p>
+                        <button type="button" class="inline-flex rounded-full bg-secondary-600 text-white mt-2 px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 ">
+                            <svg class="h-7 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                            </svg> <span class="mt-1">Ajouter une compétence</span>
+                        </button>
+                    </div>
+
+                    <!-- button suscribe -->
+                
+                    <div class="pb-1 border-t border-gray-900/10 ">
+                        <div class=" float-right pt-8 md:flex md:items-center md:justify-between">
+                            <div class="inline-flex mt-4 mr-8  sm:ml-4 sm:mt-0 sm:flex-shrink-0 ">
+                                
+                                <button type="submit" class="flex  w-full items-center justify-center rounded-md 
+                                                            bg-secondary-600 px-3 py-2 text-sm font-semibold text-white 
+                                                            shadow-sm hover:bg-secondary-600 focus-visible:outline 
+                                                            focus-visible:outline-2 focus-visible:outline-offset-2 
+                                                            focus-visible:outline-indigo-600">
+                                    Je m'inscris
+                                </button>
+                                <span ><i class="heroicon heroicon-arrow-long-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+
+        
+        <!-- Main modal -->
+        <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative w-full max-w-2xl max-h-full">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <!-- Modal header -->
+                    <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                            Ajouter un métier
+                        </h3>
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="staticModal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="p-6 space-y-1">
+                        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+   
+                            <div>
+                                <label for="combobox" class="block text-sm font-medium leading-6 text-gray-900">Choisissez un ou plusieurs métiérs</label>
+                                <div class="relative mt-2">
+                                    <ul class="multiselect">
+                                        <div class="relative flex items-start py-4">
+                                            <div class="min-w-0 flex-1 text-sm leading-6">
+                                              <label for="person-4" class="select-none font-medium text-gray-900">Auditeur énergétique</label>
+                                            </div>
+                                            <div class="ml-3 flex h-6 items-center">
+                                              <input id="person-4" name="person-4" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                            </div>
+                                        </div>
+                                        <div class="relative flex items-start py-4">
+                                            <div class="min-w-0 flex-1 text-sm leading-6">
+                                                <label for="person-4" class="select-none font-medium text-gray-900">Ingénieur structure </label>
+                                            </div>
+                                            <div class="ml-3 flex h-6 items-center">
+                                                <input id="person-4" name="person-4" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                            </div>
+                                        </div>
+                                        <div class="relative flex items-start py-4">
+                                            <div class="min-w-0 flex-1 text-sm leading-6">
+                                                <label for="person-4" class="select-none font-medium text-gray-900">Ingénieur energie renouvelable</label>
+                                            </div>
+                                            <div class="ml-3 flex h-6 items-center">
+                                                <input id="person-4" name="person-4" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                            </div>
+                                        </div>
+                                      </ul>
+                                </div>
+                            </div>
+  
+                        </p>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                        <button data-modal-hide="staticModal" type="button" class="flex items-center justify-center rounded-md 
+                        bg-secondary-600 px-3 py-2 text-sm font-semibold text-white 
+                        shadow-sm hover:bg-secondary-600 focus-visible:outline 
+                        focus-visible:outline-2 focus-visible:outline-offset-2 
+                        focus-visible:outline-indigo-600">Ajouter</button>
+                        <button data-modal-hide="staticModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>      
+    </body>
+</html>
